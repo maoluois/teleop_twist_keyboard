@@ -148,7 +148,7 @@ int main(int argc, char **argv)
   double turn = 1.0;
   double speed_limit = 1000;
   double turn_limit = 1000;
-  double repeat = 0.0;
+  double repeat = 1000.0;
   double key_timeout = 0.5;
 
   ros::NodeHandle nh("~");
