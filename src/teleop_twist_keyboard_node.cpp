@@ -158,7 +158,6 @@ int main(int argc, char **argv)
   nh.param("turn_limit", turn_limit, turn_limit);
   nh.param("repeat_rate", repeat, repeat);
   nh.param("key_timeout", key_timeout, key_timeout);
-
   PublishThread pub_thread(repeat);
 
   float x = 0, y = 0, z = 0, th = 0;
@@ -166,6 +165,38 @@ int main(int argc, char **argv)
 
   try
   {
+    // 输出提示信息
+    std::cout << R"(
+Reading from the keyboard  and Publishing to Twist!
+---------------------------
+translation slipping:
+        w
+   a    s    d
+
+---------------------------
+Moving around:
+   u    i    o
+   j    k    l
+   m    ,    .
+
+For Holonomic mode (strafing), hold down the shift key:
+---------------------------
+   U    I    O
+   J    K    L
+   M    <    >
+
+t : up (+z)
+b : down (-z)
+
+anything else : stop
+
+q/z : increase/decrease max speeds by 10%
+w/x : increase/decrease only linear speed by 10%
+e/c : increase/decrease only angular speed by 10%
+
+CTRL-C to quit
+)" << std::endl;
+
     while (ros::ok())
     {
       char key = getKey();  // 获取键盘输入
