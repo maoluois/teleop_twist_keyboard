@@ -194,7 +194,7 @@ q/z : increase/decrease max speeds by 10%
 w/x : increase/decrease only linear speed by 10%
 e/c : increase/decrease only angular speed by 10%
 
-CTRL-C to quit
+CTRL-x to quit
 )" << std::endl;
 
     while (ros::ok())
@@ -215,7 +215,7 @@ CTRL-C to quit
       }
       else
       {
-        if (key == '\x03')  // 检查是否按下了Ctrl+C
+        if (key == '\x18')  // 检查是否按下了Ctrl+B
           break;
         x = 0;
         y = 0;
